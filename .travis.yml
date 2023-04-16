@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t damianlis/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true damianlis/docker-react npm run test
